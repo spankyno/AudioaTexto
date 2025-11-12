@@ -71,7 +71,7 @@ const App: React.FC = () => {
         </div>
         
         <footer className="mt-8 text-sm text-slate-500">
-          <p>Potenciado por la API Whisper de OpenAI. Implementado en Vercel.</p>
+          <p>Potenciado por la API de Google Gemini. Implementado en Vercel.</p>
         </footer>
       </main>
     </div>
