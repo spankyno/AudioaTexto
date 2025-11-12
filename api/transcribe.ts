@@ -8,20 +8,14 @@ export const config = {
   maxDuration: 30, 
 };
 
-// Función para convertir un Blob/File en una cadena Base64
+// Función para convertir un Blob/File en una cadena Base64 compatible con Edge
 async function fileToGenerativePart(file: File) {
-  const base64EncodedDataPromise = new Promise<string>((resolve) => {
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      // El resultado es un Data URL, necesitamos quitar el prefijo
-      const dataUrl = reader.result as string;
-      const base64Data = dataUrl.substring(dataUrl.indexOf(',') + 1);
-      resolve(base64Data);
-    };
-    reader.readAsDataURL(file);
-  });
+  const arrayBuffer = await file.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
+  const base64Data = buffer.toString('base64');
+  
   return {
-    inlineData: { data: await base64EncodedDataPromise, mimeType: file.type },
+    inlineData: { data: base64Data, mimeType: file.type },
   };
 }
 
@@ -34,7 +28,6 @@ export default async function handler(req: Request) {
     });
   }
 
-  // La clave API de Gemini se obtiene de process.env.API_KEY por defecto
   if (!process.env.API_KEY) {
     console.error('Error crítico: La variable de entorno API_KEY no está configurada.');
     return new Response(JSON.stringify({ error: 'La clave API de Google no está configurada en el servidor.' }), {

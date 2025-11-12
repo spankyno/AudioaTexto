@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { transcribeWithWhisper } from './services/openaiService';
+import { transcribeAudio } from './services/geminiService';
 import { Dropzone } from './components/Dropzone';
 import { TranscriptionOutput } from './components/TranscriptionOutput';
 import { Loader } from './components/Loader';
@@ -18,7 +18,7 @@ const App: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const result = await transcribeWithWhisper(file);
+      const result = await transcribeAudio(file);
       setTranscription(result);
     } catch (err) {
       if (err instanceof Error) {
