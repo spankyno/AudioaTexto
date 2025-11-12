@@ -1,42 +1,29 @@
-const OPENAI_API_URL = 'https://api.openai.com/v1/audio/transcriptions';
+// Este servicio ahora llama a nuestra propia API backend (función serverless de Vercel)
+const API_ENDPOINT = '/api/transcribe';
 
-export const transcribeWithWhisper = async (audioFile: File, apiKey: string): Promise<string> => {
-  if (!apiKey) {
-    throw new Error("La clave API de OpenAI no ha sido proporcionada.");
-  }
-
+export const transcribeWithWhisper = async (audioFile: File): Promise<string> => {
   const formData = new FormData();
   formData.append('file', audioFile);
-  formData.append('model', 'whisper-1');
 
   try {
-    const response = await fetch(OPENAI_API_URL, {
+    const response = await fetch(API_ENDPOINT, {
       method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-      },
       body: formData,
     });
 
     const data = await response.json();
 
     if (!response.ok) {
-      let errorMessage = `Error de la API: ${response.statusText}`;
-      if (data && data.error && data.error.message) {
-        errorMessage = data.error.message;
-      }
-      if (response.status === 401) {
-          throw new Error('La clave API de OpenAI no es válida. Por favor, verifícala.');
-      }
-      throw new Error(errorMessage);
+      // El error ahora viene de nuestra propia API, que debería darnos un mensaje claro.
+      throw new Error(data.error || `Error del servidor: ${response.statusText}`);
     }
     
-    return data.text;
+    return data.transcription;
   } catch (error) {
-    console.error("Error calling OpenAI API:", error);
+    console.error("Error al llamar a la API de transcripción:", error);
     if (error instanceof Error) {
         throw error;
     }
-    throw new Error("No se pudo conectar con la API de OpenAI.");
+    throw new Error("No se pudo conectar con el servicio de transcripción.");
   }
 };
