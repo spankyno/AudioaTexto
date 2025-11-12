@@ -1,0 +1,5 @@
+{
+  "name": "Audio a texto, by Aitor",
+  "description": "Una aplicación web moderna para transcribir archivos de audio a texto utilizando la API de Gemini. Sube o arrastra un archivo de audio y obtén la transcripción al instante.",
+  "requestFramePermissions": []
+}
