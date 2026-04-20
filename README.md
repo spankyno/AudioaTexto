@@ -1,20 +1,65 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Audio a Texto — by Aitor Sánchez Gutiérrez
 
-# Run and deploy your AI Studio app
+Herramienta web gratuita para transcribir archivos de audio a texto mediante IA (Google Gemini 2.5 Flash).
 
-This contains everything you need to run your app locally.
+## Stack tecnológico
 
-View your app in AI Studio: https://ai.studio/apps/drive/1jsPKJTDtLVY0gYzdVgrpttzJVK8BX0GU
+- **Frontend**: React 19 + TypeScript + Tailwind CSS + Vite 6
+- **IA**: Google Gemini 2.5 Flash (`@google/genai`)
+- **Autenticación**: Clerk (`@clerk/clerk-react`)
+- **Backend**: Vercel Edge Functions
+- **Hosting**: Vercel
 
-## Run Locally
+## Características
 
-**Prerequisites:**  Node.js
+- Transcripción de audio con IA
+- Autenticación con Clerk (registro/login)
+- Sistema de cookies: usuarios invitados tienen 1 uso gratuito cada 5 días
+- Footer con página "Acerca de" con stack tecnológico y datos de contacto
 
+## Configuración
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1. Clona el repositorio e instala dependencias:
+   ```bash
+   npm install
+   ```
+
+2. Copia `.env.example` a `.env.local` y rellena las claves:
+   ```bash
+   cp .env.example .env.local
+   ```
+
+3. Variables de entorno necesarias:
+
+   | Variable | Descripción |
+   |---|---|
+   | `GEMINI_API_KEY` | API Key de Google AI Studio (servidor) |
+   | `VITE_CLERK_PUBLISHABLE_KEY` | Publishable Key de Clerk (cliente) |
+
+4. En Vercel, añade también `GEMINI_API_KEY` como variable de entorno del servidor.
+
+## Clerk — Configuración rápida
+
+1. Ve a [dashboard.clerk.com](https://dashboard.clerk.com) y crea una aplicación.
+2. Copia la **Publishable Key** → `VITE_CLERK_PUBLISHABLE_KEY`.
+3. (Opcional) Personaliza los métodos de inicio de sesión en el dashboard de Clerk.
+
+## Desarrollo local
+
+```bash
+npm run dev
+```
+
+## Despliegue en Vercel
+
+```bash
+vercel --prod
+```
+
+---
+
+**Autor:** Aitor Sánchez Gutiérrez © 2026 — Reservados todos los derechos  
+**Correo:** blog.cottage627@passinbox.com  
+**Contacto:** https://aitor-blog-contacto.vercel.app/  
+**Blog:** https://aitorblog.infinityfreeapp.com  
+**Más apps:** https://aitorhub.vercel.app/
