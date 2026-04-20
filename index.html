@@ -2,32 +2,57 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Aitor Sánchez Gutiérrez">    
-	<meta name="description" content="Transcribe audio a texto gratis y al instante con nuestra herramienta online. Soporta múltiples formatos y es 100% gratuita. ¡Convierte tu audio hoy!">
-	<meta name="google-site-verification" content="MEiDmnJOvnWITHUi0HCLxuoulOEm0oTM4fwQMugxoyY" />
-	<title>Transcribir Audio a Texto GRATIS | Conversor Online Rápido by Aitor Sánchez</title>
-	<script type="application/ld+json">
-		{
-		  "@context": "https://schema.org",
-		  "@type": "SoftwareApplication",
-		  "name": "Audio a Texto - Transcriptor Online",
-		  "operatingSystem": "Web",
-		  "applicationCategory": "UtilityTool",
-		  "url": "https://audioa-texto.vercel.app/",
-		  "description": "Herramienta online gratis para transcribir audio a texto",
-		  "author": {
-			  "@type": "Person",
-			  "name": "Aitor Sánchez Gutiérrez" 
-			},
-		  "offers": {
-			"@type": "Offer",
-			"price": "0",
-			"priceCurrency": "EUR"
-		  }
-		}
-</script>
+    <meta name="author" content="Aitor Sánchez Gutiérrez" />
+    <meta name="description" content="Transcribe audio a texto gratis y al instante con nuestra herramienta online. Soporta múltiples formatos y es 100% gratuita. ¡Convierte tu audio hoy!" />
+    <meta name="google-site-verification" content="MEiDmnJOvnWITHUi0HCLxuoulOEm0oTM4fwQMugxoyY" />
+    <title>Transcribir Audio a Texto GRATIS | Conversor Online Rápido by Aitor Sánchez</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://audioa-texto.vercel.app/" />
+    <meta property="og:title" content="Transcribir Audio a Texto GRATIS | Conversor Online Rápido by Aitor Sánchez" />
+    <meta property="og:description" content="Transcribe audio a texto gratis y al instante con nuestra herramienta online. Soporta múltiples formatos y es 100% gratuita. ¡Convierte tu audio hoy!" />
+    <meta property="og:image" content="https://audioa-texto.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Audio a Texto — Transcriptor online gratuito by Aitor Sánchez" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Audio a Texto" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://audioa-texto.vercel.app/" />
+    <meta name="twitter:title" content="Transcribir Audio a Texto GRATIS | Conversor Online Rápido by Aitor Sánchez" />
+    <meta name="twitter:description" content="Transcribe audio a texto gratis y al instante con nuestra herramienta online. Soporta múltiples formatos y es 100% gratuita. ¡Convierte tu audio hoy!" />
+    <meta name="twitter:image" content="https://audioa-texto.vercel.app/og-image.png" />
+    <meta name="twitter:image:alt" content="Audio a Texto — Transcriptor online gratuito by Aitor Sánchez" />
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Audio a Texto - Transcriptor Online",
+        "operatingSystem": "Web",
+        "applicationCategory": "UtilityTool",
+        "url": "https://audioa-texto.vercel.app/",
+        "description": "Herramienta online gratis para transcribir audio a texto",
+        "author": {
+          "@type": "Person",
+          "name": "Aitor Sánchez Gutiérrez"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        }
+      }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       body {
@@ -35,21 +60,21 @@
         -moz-osx-font-smoothing: grayscale;
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0",
+          "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+          "react/": "https://aistudiocdn.com/react@^19.2.0/",
+          "react": "https://aistudiocdn.com/react@^19.2.0"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
   <body class="bg-slate-900 text-white">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>
-
 </html>
