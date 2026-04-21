@@ -31,7 +31,7 @@ export const AppFooter: React.FC<AppFooterProps> = ({ onAboutClick }) => {
         </SignedOut>
         <SignedIn>
           <div className="flex items-center gap-2 text-xs text-slate-400">
-            <UserButton afterSignOutUrl="/" />
+            <UserButton />
             <span>Sesión activa · acceso ilimitado</span>
           </div>
         </SignedIn>
