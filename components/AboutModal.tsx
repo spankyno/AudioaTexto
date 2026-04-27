@@ -140,7 +140,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ onClose }) => {
                     Formulario de contacto
                   </a>
                   <a
-                    href="https://aitorblog.infinityfreeapp.com"
+                    href="https://aitorsanchez.pages.dev"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-xs text-slate-300 hover:text-sky-400 transition-colors group"
