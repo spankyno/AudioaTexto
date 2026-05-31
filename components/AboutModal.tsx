@@ -129,7 +129,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ onClose }) => {
                     <span className="truncate">blog.cottage627@passinbox.com</span>
                   </a>
                   <a
-                    href="https://aitor-blog-contacto.vercel.app/"
+                    href="https://https://aitorsanchez.pages.dev/contacto/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-xs text-slate-300 hover:text-sky-400 transition-colors group"
