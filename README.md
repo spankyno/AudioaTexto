@@ -60,6 +60,6 @@ vercel --prod
 
 **Autor:** Aitor Sánchez Gutiérrez © 2026 — Reservados todos los derechos  
 **Correo:** blog.cottage627@passinbox.com  
-**Contacto:** https://aitor-blog-contacto.vercel.app/  
-**Blog:** https://aitorblog.infinityfreeapp.com  
+**Contacto:** https://aitorsanchez.pages.dev/contacto/
+**Blog:** https://aitorsanchez.pages.dev/
 **Más apps:** https://aitorhub.vercel.app/
