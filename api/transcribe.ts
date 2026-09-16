@@ -28,16 +28,20 @@ export default async function handler(req: Request) {
     });
   }
 
-  if (!process.env.API_KEY) {
-    console.error('Error crítico: La variable de entorno API_KEY no está configurada.');
-    return new Response(JSON.stringify({ error: 'La clave API de Google no está configurada en el servidor.' }), {
+  // Aceptamos tanto API_KEY como GEMINI_API_KEY para evitar errores de configuración
+  // en Vercel, ya que la documentación del proyecto usa GEMINI_API_KEY.
+  const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY;
+
+  if (!apiKey) {
+    console.error('Error crítico: no se encontró la variable de entorno API_KEY ni GEMINI_API_KEY.');
+    return new Response(JSON.stringify({ error: 'La clave API de Google no está configurada en el servidor. Añade la variable de entorno API_KEY (o GEMINI_API_KEY) en Vercel y vuelve a desplegar.' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });
   }
   
   try {
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    const ai = new GoogleGenAI({ apiKey });
 
     const formData = await req.formData();
     const file = formData.get('file');
