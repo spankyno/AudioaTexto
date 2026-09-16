@@ -56,7 +56,7 @@ export default async function handler(req: Request) {
     const audioPart = await fileToGenerativePart(file);
 
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-3.6-flash',
       contents: [{
         parts: [
           { text: "Transcribe el siguiente audio:" },
