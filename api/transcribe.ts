@@ -1,11 +1,12 @@
-// Vercel Edge Function
+// Vercel Function (Node.js runtime)
 // Ubicación: /api/transcribe.ts
 import { GoogleGenAI } from "@google/genai";
 
 export const config = {
-  runtime: 'edge',
-  // Aumentar el tamaño máximo de la carga útil para archivos de audio más grandes
-  maxDuration: 30, 
+  // El runtime Edge es más restrictivo con Buffer y con archivos grandes,
+  // y ante un fallo devuelve una página de error en texto plano (no JSON),
+  // lo que rompe el parseo en el cliente. Node.js es más fiable para esto.
+  maxDuration: 60,
 };
 
 // Función para convertir un Blob/File en una cadena Base64 compatible con Edge
